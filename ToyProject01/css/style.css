@@ -1,0 +1,67 @@
+/* COMMON */
+body{
+  max-width: 375px;
+  max-height: 812px;
+  margin: auto;
+  background-color: lavender;
+}
+
+/* MAIN */
+.mainHome{
+  background-color: #EEECE5;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: 'Noto Sans KR', sans-serif;
+  border: 1px solid red;
+}
+
+/* TOP */
+.top{
+  position: relative;
+  box-sizing: border-box;
+  height: 44px;
+}
+.top .top__left{
+  position: absolute;
+  top: 14px;
+  left: 21px;
+}
+.top .top__left #currentTime {
+  font-size: 16px;
+}
+.top .top__right{
+  position: absolute;
+  top: 14px;
+  right: 15px;
+}
+.top .top__right ul.statusBar{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.top .top__right ul.statusBar li{
+  font-size: 20px;
+}
+.top .top__right ul.statusBar li:last-child{
+  right: 15px;
+}
+/* HEADER */
+header{
+  border: 1px solid green;
+  padding-top: 12px;
+  box-sizing: border-box;
+  height: 43px;
+  width: 327px;
+}
+header .profile{
+
+}
+header h2{
+
+}
+header .menu1{
+
+}
+header .search{
+
+}

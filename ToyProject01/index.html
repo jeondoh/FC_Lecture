@@ -1,16 +1,55 @@
 <!doctype html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <title>Toy Project</title>
-    <!-- CSS include -->
-    <link rel="stylesheet" href="./css/style.css">
-    <!-- JS include -->
-    <script defer src="./js/app.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title>Toy Project</title>
+  <!-- CSS RESET -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css"/>
+  <!-- 구글폰트 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;500&display=swap" rel="stylesheet"/>
+  <!-- 구글 메테리얼 아이콘 -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <!-- CSS include -->
+  <link rel="stylesheet" href="./css/style.css"/>
+  <!-- JS include -->
+  <script defer src="./js/app.js"></script>
 </head>
-<body>
 
+<body>
+  <main class="mainHome">
+    <!-- 최상단 시간 & 정보 -->
+    <div class="top">
+      <!-- 좌측(시간) -->
+      <div class="top__left">
+        <!--TODO: 현재시간 가져오게 만들기-->
+        <span id="currentTime">9:41</span>
+      </div>
+      <!-- 우측(통신, 와이파이, 배터리) -->
+      <div class="top__right">
+        <ul class="statusBar">
+          <li class="material-icons">signal_cellular_alt</li>
+          <li class="material-icons">wifi</li>
+          <li class="material-icons">battery_full</li>
+        </ul>
+      </div>
+    </div>
+    <!-- HEADER -->
+    <header>
+      <div class="profile"></div>
+      <h2>생활비</h2> <!-- TODO: 슬라이드 시 동적으로 이름 변하게 변경 -->
+      <div class="material-icons menu1">help_outline</div>
+      <div class="material-icons search">search</div>
+    </header>
+    <!-- HEADER FIN -->
+    <!-- SECTION  -->
+    <section></section>
+    <section></section>
+    <!-- NAV -->
+    <nav></nav>
+  </main>
 </body>
 </html>
