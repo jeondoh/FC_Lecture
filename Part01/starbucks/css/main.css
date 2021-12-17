@@ -446,7 +446,7 @@ header .badges .badge{
   margin-right: 0px;
 }
 .notice .promotion .swiper-pagination .swiper-pagination-bullet-active{
-  background-image: url("../images//promotion_slide_pager_on.png");
+  background-image: url("../images/promotion_slide_pager_on.png");
 }
 .notice .promotion .swiper-prev,
 .notice .promotion .swiper-next{
@@ -722,10 +722,10 @@ header .badges .badge{
 }
 .find-store .picture1{
   top: -60px;
-  left: 0px;
+  left: 0;
 }
 .find-store .picture2{
-  top: 150;
+  top: 150px;
   left: 250px;
 }
 .find-store .text-group{
