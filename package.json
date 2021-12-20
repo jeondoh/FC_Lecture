@@ -1,11 +1,15 @@
 {
   "scripts":{
-    "dev": "parcel Part02/ShallowDeepCopy/index.html"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
     "lodash": "^4.17.21"
   },
   "devDependencies": {
     "parcel-bundler": "^1.12.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jeondoh/FC_Lecture.git"
   }
 }
