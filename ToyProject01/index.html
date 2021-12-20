@@ -39,17 +39,93 @@
     </div>
     <!-- HEADER -->
     <header>
-      <div class="profile"></div>
-      <h2>생활비</h2> <!-- TODO: 슬라이드 시 동적으로 이름 변하게 변경 -->
-      <div class="material-icons menu1">help_outline</div>
-      <div class="material-icons search">search</div>
+      <div class="header_wrap">
+        <img src="./images/profile.png" alt="" class="profile">
+        <h1>생활비</h1> <!-- TODO: 슬라이드 시 동적으로 이름 변하게 변경 -->
+        <div class="material-icons menu1">help_outline</div>
+        <div class="material-icons search">search</div>
+      </div>
     </header>
     <!-- HEADER FIN -->
-    <!-- SECTION  -->
-    <section></section>
-    <section></section>
+
+    <!-- 계좌정보  -->
+    <section class="bank_container">
+      <div class="bank__wrap">
+        <article class="bank__account">
+          <span class="bank__accountNum">355-673877-78773</span>
+          <span class="bank__transfer">이체</span>
+        </article>
+        <article class="bank__money">
+          <strong>3,140,000</strong><span>원</span>
+        </article>
+        <article class="bank__range">
+          <input type="range" value="80">
+          <span class="material-icons bank__chart">bar_chart</span>
+        </article>
+        <p>5일 동안 210,000원 남음</p>
+      </div>
+      <!-- ADV -->
+      <div class="bank__adv">
+        <span>지금 낮은 이자로 생활대출을 신청하세요! <a href="javascript:void(0)">Go</a></span>
+      </div>
+    </section>
+
+    <!-- 슬라이드(지출내역) -->
+    <section class="bank_slide">
+      <div class="underline"></div>
+      <section class="bank__card">
+        <ul>
+          <li>
+            <div class="box1">
+              <div class="box__inner box1__inner">
+                <div class="box__write">
+                  <p>화성가자!</p>
+                  <p>999,999원</p>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="box2">
+              <div class="box__inner box2__inner">
+                <div class="box__write">
+                  <p>냉장고사기!</p>
+                  <p>142,200원</p>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </section>
+      <!-- 지출내역 -->
+      <section class="bank__payContainer">
+        <!-- JSON 데이터 -->
+        <div class="bank__payList">
+          <div class="bank__datePay">
+            <!--TODO : 날짜변환 -->
+            <span class="bank__date">오늘</span>
+            <!--TODO : 지출 -->
+            <span class="bank__pay">127,600원 지출</span>
+          </div>
+          <div class="bank__goods">
+            <!-- TODO 입금일때 + 가격처리 & 색변경 -->
+            <span class="goodsName">미스터피자</span>
+            <span class="goodsPrice">32,000</span>
+          </div>
+          <hr/>
+        </div>
+      </section>
+    </section>
+
     <!-- NAV -->
-    <nav></nav>
+    <nav class="bottom">
+      <ul>
+        <li class="material-icons home">home</li>
+        <li class="material-icons transfer">sync_alt</li>
+        <li class="material-icons message">insert_comment</li>
+        <li class="material-icons more">more_horiz</li>
+      </ul>
+    </nav>
   </main>
 </body>
 </html>

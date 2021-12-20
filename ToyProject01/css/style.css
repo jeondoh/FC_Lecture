@@ -4,27 +4,28 @@ body{
   max-height: 812px;
   margin: auto;
   background-color: lavender;
+  box-sizing: border-box;
 }
-
+a{
+  text-decoration: none;
+  color: #000000;
+}
 /* MAIN */
 .mainHome{
   background-color: #EEECE5;
-  font-size: 14px;
   font-weight: 500;
   font-family: 'Noto Sans KR', sans-serif;
-  border: 1px solid red;
 }
 
 /* TOP */
 .top{
   position: relative;
-  box-sizing: border-box;
   height: 44px;
 }
 .top .top__left{
   position: absolute;
   top: 14px;
-  left: 21px;
+  left: 27px;
 }
 .top .top__left #currentTime {
   font-size: 16px;
@@ -32,7 +33,7 @@ body{
 .top .top__right{
   position: absolute;
   top: 14px;
-  right: 15px;
+  right: 20px;
 }
 .top .top__right ul.statusBar{
   display: flex;
@@ -45,23 +46,234 @@ body{
 .top .top__right ul.statusBar li:last-child{
   right: 15px;
 }
+
 /* HEADER */
 header{
-  border: 1px solid green;
   padding-top: 12px;
-  box-sizing: border-box;
   height: 43px;
   width: 327px;
+  margin: auto;
+}
+header .header_wrap{
+  display: flex;
+  align-items: center;
 }
 header .profile{
-
+  display: block;
 }
-header h2{
-
+header h1{
+  width: 49px;
+  margin: auto;
 }
 header .menu1{
-
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
 }
 header .search{
+  width: 24px;
+  height: 24px;
+}
 
+/* SECTION */
+section.bank_container{
+  margin-top: 33px;
+}
+
+section.bank_container .bank__wrap{
+  width: 279px;
+  height: 155px;
+  background-color: #FFF;
+  box-shadow: 0 0 16px rgba(266, 191, 66, 0.19);
+  border-radius: 12px;
+  margin: auto;
+  padding: 14px 0 0 0;
+  position: relative;
+}
+section.bank_container .bank__wrap .bank__account{
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 21px;
+  letter-spacing: -0.24px;
+  text-align: center;
+}
+section.bank_container .bank__wrap .bank__account .bank__accountNum{
+  color: #858585;
+}
+section.bank_container .bank__wrap .bank__account .bank__transfer{
+  position: absolute;
+  left: 236px;
+  right: 17px;
+}
+section.bank_container .bank__wrap .bank__money{
+  width: 160px;
+  margin: auto;
+  text-align: center;
+  padding-top: 16px;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 36px;
+  letter-spacing: 2px;
+  padding-bottom: 16px;
+}
+section.bank_container .bank__wrap .bank__money span{
+  font-size: 14px;
+}
+section.bank_container .bank__wrap .bank__range{
+  text-align: center;
+}
+section.bank_container .bank__wrap .bank__range input[type='range']{
+  width: 202px;
+  margin-right: 7px;
+}
+section.bank_container .bank__wrap p{
+  color: #858585;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 21px;
+  padding-top: 8px;
+  text-align: center;
+}
+section.bank_container .bank__adv{
+  padding-top: 24px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 21px;
+  text-align: center;
+}
+section.bank_container .bank__adv span a{
+  text-decoration-line: underline;
+}
+
+/* 슬라이드(지출내역) */
+section.bank_slide{
+  position: relative;
+  margin-top: 21px;
+  background-color: #F5F5F5;
+  box-shadow: 0 -5px 14px rgba(189, 144, 28, 0.08);
+  border-radius: 30px 30px 0 0;
+  width: 375px;
+  height: 383px;
+  padding: 25px 20px 0 30px;
+  box-sizing: border-box;
+}
+section.bank_slide .underline{
+  width: 48px;
+  height: 2px;
+  background: #c4c4c4;
+  border-radius: 4px;
+  position: absolute;
+  top: 4px;
+  right: 44%;
+  left: 43%;
+}
+section.bank_slide .bank__card{
+  height: 49px;
+}
+section.bank_slide .bank__card ul{
+  display: flex;
+  justify-content: space-between;
+}
+section.bank_slide .bank__card ul > li .box1,
+section.bank_slide .bank__card ul > li .box2{
+  width: 148px;
+  height: 47px;
+  background-color: #dadada;
+  border-radius: 6px;
+  position: relative;
+}
+section.bank_slide .bank__card ul > li .box1 .box1__inner,
+section.bank_slide .bank__card ul > li .box2 .box2__inner{
+  position: absolute;
+  border-radius: 6px;
+}
+
+section.bank_slide .bank__card ul > li .box1 .box1__inner{
+  background-color: #FF5F00;
+  width: 97px;
+  height: 47px;
+  right: 40%;
+}
+section.bank_slide .bank__card ul > li .box2 .box2__inner{
+  background-color: #FEB700;
+  width: 121px;
+  height: 47px;
+  right: 25%;
+}
+section.bank_slide .bank__card ul > li .box__inner .box__write{
+  color: #FFFFFF;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 18px;
+  margin: 4px 0 4px 13px;
+}
+section.bank_slide .bank__payContainer{
+  height: 295px;
+  overflow-y: scroll;
+  -ms-overflow-style: none;
+}
+section.bank_slide .bank__payContainer::-webkit-scrollbar{
+  display: none;
+}
+section.bank_slide .bank__payContainer .bank__payList{
+  margin-top: 16px;
+}
+section.bank_slide .bank__payContainer .bank__payList .bank__datePay{
+  display: flex;
+  justify-content: space-between;
+}
+section.bank_slide .bank__payContainer .bank__payList .bank__datePay .bank__date{
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 21px;
+}
+section.bank_slide .bank__payContainer .bank__payList .bank__datePay .bank__pay{
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 21px;
+  color: #B4B4B4;
+}
+section.bank_slide .bank__payContainer .bank__payList .bank__datePay .bank__pay{
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 21px;
+  color: #B4B4B4;
+}
+section.bank_slide .bank__payContainer .bank__payList hr{
+  border: 1px solid #DCDCDC;
+}
+section.bank_slide .bank__payContainer .bank__goods{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 8px;
+}
+section.bank_slide .bank__payContainer .bank__goods .goodsName,
+section.bank_slide .bank__payContainer .bank__goods .goodsPrice{
+  font-weight: 350;
+  font-size: 18px;
+  line-height: 27px;
+  color: #444444;
+}
+
+/* NAV */
+nav.bottom{
+  display: flex;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  width: 375px;
+  height: 76px;
+  top: 736px;
+  background: linear-gradient(163.63deg, #00BDB2 11.35%, #C4E7B8 139.96%);
+}
+nav.bottom ul{
+  display: flex;
+  width: 297px;
+  margin: auto;
+  justify-content: space-between;
+  align-items: center;
+  color: #EEECE5;
+}
+nav.bottom ul li:first-child{
+  color: #005F59;
 }
