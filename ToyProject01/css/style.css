@@ -218,22 +218,25 @@ section.bank_slide .bank__payContainer::-webkit-scrollbar{
 section.bank_slide .bank__payContainer .bank__payList{
   margin-top: 16px;
 }
-section.bank_slide .bank__payContainer .bank__payList .bank__datePay{
+section.bank_slide .bank__payContainer .bank__payList .bank__cloneWrap:not(:first-child){
+  padding-top: 38px;
+}
+section.bank_slide .bank__payContainer .bank__payList .bank__cloneWrap .bank__datePay{
   display: flex;
   justify-content: space-between;
 }
-section.bank_slide .bank__payContainer .bank__payList .bank__datePay .bank__date{
+section.bank_slide .bank__payContainer .bank__payList .bank__cloneWrap .bank__datePay .bank__date{
   font-weight: bold;
   font-size: 14px;
   line-height: 21px;
 }
-section.bank_slide .bank__payContainer .bank__payList .bank__datePay .bank__pay{
+section.bank_slide .bank__payContainer .bank__payList .bank__cloneWrap .bank__datePay .bank__pay{
   font-weight: 500;
   font-size: 14px;
   line-height: 21px;
   color: #B4B4B4;
 }
-section.bank_slide .bank__payContainer .bank__payList .bank__datePay .bank__pay{
+section.bank_slide .bank__payContainer .bank__payList .bank__cloneWrap .bank__datePay .bank__pay{
   font-weight: 500;
   font-size: 14px;
   line-height: 21px;
@@ -242,13 +245,13 @@ section.bank_slide .bank__payContainer .bank__payList .bank__datePay .bank__pay{
 section.bank_slide .bank__payContainer .bank__payList hr{
   border: 1px solid #DCDCDC;
 }
-section.bank_slide .bank__payContainer .bank__goods{
+section.bank_slide .bank__payContainer .bank__cloneGoods .bank__goods{
   display: flex;
   justify-content: space-between;
   margin-top: 8px;
 }
-section.bank_slide .bank__payContainer .bank__goods .goodsName,
-section.bank_slide .bank__payContainer .bank__goods .goodsPrice{
+section.bank_slide .bank__payContainer .bank__cloneGoods .bank__goods .goodsName,
+section.bank_slide .bank__payContainer .bank__cloneGoods .bank__goods .goodsPrice{
   font-weight: 350;
   font-size: 18px;
   line-height: 27px;
