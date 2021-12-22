@@ -8,6 +8,20 @@ const getToday = () =>{
   return `${year}-${month}-${date}`;
 }
 
+// income에 따른 가격 표기
+const setGoodsPrice = (data, node) => {
+  const income = data.income;
+  let result = "";
+  if(income === "in"){
+    result = '+ ' + Number(data.price).toLocaleString();
+    node.querySelector(".goodsPrice").classList.add('in');
+  } else {
+    result = Number(data.price).toLocaleString();
+    node.querySelector(".goodsPrice").classList.remove('in');
+  }
+  node.querySelector(".goodsPrice").textContent = result;
+}
+
 // json 데이터 HTML 뿌리기
 const setJsonDataToHtml = jsonData => {
   let prevDate = -1; // 비교데이터(이전날짜)
@@ -38,7 +52,7 @@ const setJsonDataToHtml = jsonData => {
       // 같은 날짜일 경우
       const sameCloneEl = bankCloneGoodsEl.cloneNode(true);
       sameCloneEl.querySelector(".goodsName").textContent = data.history;
-      sameCloneEl.querySelector(".goodsPrice").textContent = Number(data.price).toLocaleString();
+      setGoodsPrice(data, sameCloneEl);
       bankCloneWrapEl.append(sameCloneEl);
     }else{
       // 다른 날짜일 경우
@@ -46,7 +60,7 @@ const setJsonDataToHtml = jsonData => {
         // 최초 로직 실행시
         document.querySelector(".bank__date").textContent = dateName;
         document.querySelector(".goodsName").textContent = data.history;
-        document.querySelector(".goodsPrice").textContent = Number(data.price).toLocaleString();
+        setGoodsPrice(data, document);
         prevDate = diffDay;
         continue;
       }
@@ -58,7 +72,7 @@ const setJsonDataToHtml = jsonData => {
       }
       // 첫번째 자식 값 지정
       removeChild[0].querySelector(".goodsName").textContent = data.history;
-      removeChild[0].querySelector(".goodsPrice").textContent = Number(data.price).toLocaleString();
+      setGoodsPrice(data, removeChild[0]);
       // 날짜 지정
       diffCloneEl.querySelector(".bank__date").textContent = dateName;
 
@@ -73,9 +87,15 @@ const payMoney = data => {
   const cloneWrapEl = document.querySelectorAll(".bank__cloneWrap");
   for(let cloneWrap of cloneWrapEl){
     const goodsPriceEl = cloneWrap.querySelectorAll(".goodsPrice");
+    let totalPrice = 0;
+
     for(let goodsPrice of goodsPriceEl){
-      //TODO : 전체 지출 계산하기!
+      // 전체 지출 계산
+      let price = goodsPrice.textContent.replaceAll(",", "").replace("+ ", "-");
+      totalPrice += Number(price);
     }
+    cloneWrap.querySelector(".bank__pay").textContent = totalPrice.toLocaleString() + "원 지출";
+    totalPrice = 0; // 초기화
   }
 }
 

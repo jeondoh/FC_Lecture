@@ -257,6 +257,9 @@ section.bank_slide .bank__payContainer .bank__cloneGoods .bank__goods .goodsPric
   line-height: 27px;
   color: #444444;
 }
+section.bank_slide .bank__payContainer .bank__cloneGoods .bank__goods .goodsPrice.in{
+  color: #FF5F00;
+}
 
 /* NAV */
 nav.bottom{
