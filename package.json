@@ -1,8 +1,9 @@
 {
-  "scripts":{
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "scripts": {
+    "dev": "parcel Part02/index.html"
   },
   "dependencies": {
+    "axios": "^0.24.0",
     "lodash": "^4.17.21"
   },
   "devDependencies": {
