@@ -9,22 +9,29 @@ const getToday = () =>{
 }
 
 // income에 따른 가격 표기
-const setGoodsPrice = (data, node) => {
+const setGoodsPrice = (data, node, totalPrice) => {
   const income = data.income;
   let result = "";
+  let price = Number(data.price);
+
   if(income === "in"){
-    result = '+ ' + Number(data.price).toLocaleString();
+    totalPrice -= price;
+    result = '+ ' + price.toLocaleString();
     node.querySelector(".goodsPrice").classList.add('in');
   } else {
-    result = Number(data.price).toLocaleString();
+    totalPrice += price;
+    result = price.toLocaleString();
     node.querySelector(".goodsPrice").classList.remove('in');
   }
   node.querySelector(".goodsPrice").textContent = result;
+  return totalPrice;
 }
 
 // json 데이터 HTML 뿌리기
 const setJsonDataToHtml = jsonData => {
   let prevDate = -1; // 비교데이터(이전날짜)
+  let totalPrice = 0; // 일자별 전체 지출 총합
+  let nthChildNum = 0;
 
   for (let data of jsonData){
     const currentTime = new Date(getToday()).getTime();
@@ -52,7 +59,7 @@ const setJsonDataToHtml = jsonData => {
       // 같은 날짜일 경우
       const sameCloneEl = bankCloneGoodsEl.cloneNode(true);
       sameCloneEl.querySelector(".goodsName").textContent = data.history;
-      setGoodsPrice(data, sameCloneEl);
+      totalPrice = setGoodsPrice(data, sameCloneEl, totalPrice);
       bankCloneWrapEl.append(sameCloneEl);
     }else{
       // 다른 날짜일 경우
@@ -60,7 +67,7 @@ const setJsonDataToHtml = jsonData => {
         // 최초 로직 실행시
         document.querySelector(".bank__date").textContent = dateName;
         document.querySelector(".goodsName").textContent = data.history;
-        setGoodsPrice(data, document);
+        totalPrice = setGoodsPrice(data, document, totalPrice);
         prevDate = diffDay;
         continue;
       }
@@ -72,31 +79,20 @@ const setJsonDataToHtml = jsonData => {
       }
       // 첫번째 자식 값 지정
       removeChild[0].querySelector(".goodsName").textContent = data.history;
-      setGoodsPrice(data, removeChild[0]);
+      // 전체 지출
+      document.querySelectorAll(".bank__pay")[nthChildNum++].textContent = `${totalPrice.toLocaleString()}원 지출`;
+      // 전체 지출 초기화
+      totalPrice = 0;
+      totalPrice = setGoodsPrice(data, removeChild[0], totalPrice);
       // 날짜 지정
       diffCloneEl.querySelector(".bank__date").textContent = dateName;
-
+      // html append
       bankPayListEl.append(diffCloneEl);
     }
     prevDate = diffDay;
   }
-}
-
-// 지출 계산
-const payMoney = data => {
-  const cloneWrapEl = document.querySelectorAll(".bank__cloneWrap");
-  for(let cloneWrap of cloneWrapEl){
-    const goodsPriceEl = cloneWrap.querySelectorAll(".goodsPrice");
-    let totalPrice = 0;
-
-    for(let goodsPrice of goodsPriceEl){
-      // 전체 지출 계산
-      let price = goodsPrice.textContent.replaceAll(",", "").replace("+ ", "-");
-      totalPrice += Number(price);
-    }
-    cloneWrap.querySelector(".bank__pay").textContent = totalPrice.toLocaleString() + "원 지출";
-    totalPrice = 0; // 초기화
-  }
+  // 마지막 노드 전체 지출
+  document.querySelectorAll(".bank__pay")[nthChildNum].textContent = `${totalPrice.toLocaleString()}원 지출`;
 }
 
 // json 데이터 가져오기
@@ -112,7 +108,7 @@ const getData = async () => {
       new Date(b.date) - new Date(a.date)
   );
   setJsonDataToHtml(result); // html append
-  payMoney(result); // 지출 계산
+  console.log(result);
 }
 
 document.addEventListener("DOMContentLoaded", () => { getData() });
