@@ -86,7 +86,7 @@ const setJsonDataToHtml = jsonData => {
       totalPrice = setGoodsPrice(data, removeChild[0], totalPrice);
       // 날짜 지정
       diffCloneEl.querySelector(".bank__date").textContent = dateName;
-      // html append
+      // 00_html append
       bankPayListEl.append(diffCloneEl);
     }
     prevDate = diffDay;
@@ -107,7 +107,7 @@ const getData = async () => {
   result.sort((a, b) =>
       new Date(b.date) - new Date(a.date)
   );
-  setJsonDataToHtml(result); // html append
+  setJsonDataToHtml(result); // 00_html append
   console.log(result);
 }
 
