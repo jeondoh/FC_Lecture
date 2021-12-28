@@ -1,12 +1,13 @@
 {
   "scripts": {
-    "dev": "parcel Part02/index.html",
+    "dev": "parcel 01_js/index.html",
     "build": "tsc"
   },
   "dependencies": {
     "axios": "^0.24.0",
     "lodash": "^4.17.21",
-    "typescript": "^4.5.4"
+    "typescript": "^4.5.4",
+    "vue": "^2.6.14"
   },
   "devDependencies": {
     "parcel-bundler": "^1.12.5"
