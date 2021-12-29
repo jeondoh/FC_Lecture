@@ -1,4 +1,4 @@
-class Person<T, K>{
+class PersonG1<T, K>{
   private _name: T;
   private _age: K;
 
@@ -8,6 +8,6 @@ class Person<T, K>{
   }
 }
 
-new Person("Mark");
+new PersonG1("Mark", 22);
 // new Person<string>(39);
 // new Person<string, number>("Mark", "age");
