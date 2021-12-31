@@ -1,9 +1,19 @@
-@import "./sub", "./sub2";
+// 커스텀
+@import "./node_modules/bootstrap/scss/functions";
+@import "./node_modules/bootstrap/scss/variables";
+@import "./node_modules/bootstrap/scss/mixins";
+@import "./node_modules/bootstrap/scss/root";
 
-$color: royalblue;
+$theme-colors: (
+        "primary":    $primary,
+        "secondary":  yellowgreen,
+        "success":    $success,
+        "info":       $info,
+        "warning":    $warning,
+        "danger":     $danger,
+        "light":      $light,
+        "dark":       $dark
+);
 
-.container{
-  h1{
-    color: $color;
-  }
-}
+@import "./node_modules/bootstrap/scss/bootstrap";
+
