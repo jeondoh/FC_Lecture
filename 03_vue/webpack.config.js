@@ -2,12 +2,20 @@
 const path = require('path')
 const HtmlPlugin = require('html-webpack-plugin')
 const CopyPlugin = require('copy-webpack-plugin')
+const { VueLoaderPlugin } = require('vue-loader')
 
 // export
 module.exports = {
-  // parcel index.html
+  resolve: {
+    extensions: ['.js', '.vue'],
+    // 경로 별칭
+    alias: {
+      '~': path.resolve(__dirname, 'src'),
+      'assets': path.resolve(__dirname, 'src/assets'),
+    }
+  },
   // 파일을 읽어들이기 시작하는 진입점 설정
-  entry: "./js/main.js",
+  entry: "./src/main.js",
 
   // 결과물(번들)을 반환하는 설정
   output: {
@@ -19,11 +27,15 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.vue$/,
+        use: "vue-loader"
+      },
+      {
         // .css .scss 로 끝나는 문자를 찾기 위한 정규식
         test: /\.s?css$/,
         // 순서 중요
         use: [
-            'style-loader',
+            'vue-style-loader',
             'css-loader',
             'postcss-loader',
             'sass-loader',
@@ -31,9 +43,12 @@ module.exports = {
       },
       {
         test: /\.js$/,
-        use:[
-            'babel-loader'
-        ]
+        use: 'babel-loader'
+
+      },
+      {
+        test: /\.(png|jpe?g|gif|webp)$/,
+        use: 'file-loader'
       }
     ]
   },
@@ -47,7 +62,8 @@ module.exports = {
         patterns: [
           {from: 'static'}
         ]
-      })
+      }),
+      new VueLoaderPlugin()
   ],
 
   devServer: {
