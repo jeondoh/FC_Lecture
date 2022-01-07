@@ -7,7 +7,6 @@ export default function About(){
   // const obj = new URLSearchParams(location.search);
   // console.log(obj.get('name'))
   const query = queryString.parse(location);
-  console.log(query);
 
   return (
     <div>
