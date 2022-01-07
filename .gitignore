@@ -9,11 +9,19 @@
 node_modules/
 dist/
 .cache/
+/.pnp
+.pnp.js
+
 
 .DS_Store
 node_modules
-/dist
+dist
 
+# testing
+coverage
+
+# production
+build
 
 # local env files
 .env.local
@@ -32,3 +40,8 @@ pnpm-debug.log*
 *.njsproj
 *.sln
 *.sw?
+
+# misc
+.env.development.local
+.env.test.local
+.env.production.local
