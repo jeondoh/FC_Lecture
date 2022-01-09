@@ -9,6 +9,8 @@ import Login from "./components/Login";
 import StyledButton from "./components/StyledButton";
 import styled, {createGlobalStyle} from 'styled-components'
 import StyledA from "./components/StyledA";
+import root from 'react-shadow';
+import {Calendar} from "antd";
 
 const isLogin = true;
 
@@ -44,24 +46,43 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
+const styles = `
+  p{
+    color:red;
+  }
+`;
+
 function App() {
   return (
       <BrowserRouter>
         <GlobalStyle/>
-        <p>
-          <StyledButton>버튼1</StyledButton>
-          <StyledButton primary>버튼2</StyledButton>
+          <p>
+            <StyledButton>버튼1</StyledButton>
+            <StyledButton primary>버튼2</StyledButton>
 
-          <PrimaryStyledButton>버튼3</PrimaryStyledButton>
+            <PrimaryStyledButton>버튼3</PrimaryStyledButton>
 
-          <StyledButton as="a" href="/">버튼4</StyledButton>
-          <StyledButton as={UppercaseButton}>toupper</StyledButton>
+            <StyledButton as="a" href="/">버튼4</StyledButton>
+            <StyledButton as={UppercaseButton}>toupper</StyledButton>
 
-          <StyledMyButton>버튼5</StyledMyButton>
-          <StyledMyButton color="green">버튼6</StyledMyButton>
+            <StyledMyButton>버튼5</StyledMyButton>
+            <StyledMyButton color="green">버튼6</StyledMyButton>
 
-          <StyledA href="https://google.com">태그</StyledA>
-        </p>
+            <StyledA href="https://google.com">태그</StyledA>
+          </p>
+          <p>안녕하세요 react-shadow(외부) 테스트 입니다.</p>
+        <root.div>
+          <style type="text/css">
+            {styles}
+          </style>
+          <p>안녕하세요 react-shadow(root 내부) 입니다.</p>
+        </root.div>
+        <div className="antd_exam">
+          <div className="site-calendar-demo-card">
+            <Calendar fullscreen={false}/>
+          </div>
+        </div>
+
         <Links/>
         {/*<NavLinks/>*/}
         <Routes>
