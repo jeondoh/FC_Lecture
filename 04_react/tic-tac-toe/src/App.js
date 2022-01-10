@@ -11,6 +11,8 @@ import styled, {createGlobalStyle} from 'styled-components'
 import StyledA from "./components/StyledA";
 import root from 'react-shadow';
 import {Calendar} from "antd";
+import ControlledComponent from "./components/ControlledComponent";
+import UncontrolledComponent from "./components/UncontrolledComponent";
 
 const isLogin = true;
 
@@ -82,7 +84,10 @@ function App() {
             <Calendar fullscreen={false}/>
           </div>
         </div>
-
+        {/*ControlledComponent*/}
+        <ControlledComponent/>
+        {/*UncontrolledComponent*/}
+        <UncontrolledComponent/>
         <Links/>
         {/*<NavLinks/>*/}
         <Routes>
