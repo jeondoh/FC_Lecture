@@ -24,6 +24,10 @@ import useHasMounted from "./components/Hooks/useHasMounted";
 import ExamHook6 from "./components/Hooks/ExamHook6";
 import ExamHook7 from "./components/Hooks/ExamHook7";
 import ExamHook8 from "./components/Hooks/ExamHook8";
+import A from "./communicate/A";
+import Example1 from "./contexts/Example1";
+import Example2 from "./contexts/Example2";
+import Example3 from "./contexts/Example3";
 
 const isLogin = true;
 
@@ -123,6 +127,12 @@ function App({hasMounted}) {
         <ExamHook7/>
         {/* Hook Example8 */}
         <ExamHook8/>
+        {/*컴포넌트간 통신*/}
+        <A/>
+        {/*Context API*/}
+        <Example1/>
+        <Example2/>
+        <Example3/>
 
         {/*<NavLinks/>*/}
         <Routes>
