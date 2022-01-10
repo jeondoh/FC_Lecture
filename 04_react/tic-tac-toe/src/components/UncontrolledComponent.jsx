@@ -4,7 +4,7 @@ class UncontrolledComponent extends React.Component{
   inputRef = React.createRef();
 
   render() {
-    console.log('init render', this.inputRef);
+    // console.log('init render', this.inputRef);
     return (
       <div>
         <input ref={this.inputRef} id="my-input" />
@@ -14,7 +14,7 @@ class UncontrolledComponent extends React.Component{
   }
   // render이후
   componentDidMount() {
-    console.log('componentDidMount', this.inputRef);
+    // console.log('componentDidMount', this.inputRef);
   }
 
   click = () => {

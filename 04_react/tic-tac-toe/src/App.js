@@ -13,6 +13,17 @@ import root from 'react-shadow';
 import {Calendar} from "antd";
 import ControlledComponent from "./components/ControlledComponent";
 import UncontrolledComponent from "./components/UncontrolledComponent";
+import ExamHook1 from "./components/Hooks/ExamHook1";
+import ExamHook2 from "./components/Hooks/ExamHook2";
+import ExamHook3 from "./components/Hooks/ExamHook3";
+import ExamHook4 from "./components/Hooks/ExamHook4";
+import ExamHook5 from "./components/Hooks/ExamHook5";
+import useWindowWidth from "./components/Hooks/useWindowWidth";
+import withHasMounted from "./components/hocs/withHasMounted";
+import useHasMounted from "./components/Hooks/useHasMounted";
+import ExamHook6 from "./components/Hooks/ExamHook6";
+import ExamHook7 from "./components/Hooks/ExamHook7";
+import ExamHook8 from "./components/Hooks/ExamHook8";
 
 const isLogin = true;
 
@@ -54,7 +65,11 @@ const styles = `
   }
 `;
 
-function App() {
+function App({hasMounted}) {
+  const width = useWindowWidth();
+  const hasMountedFromHooks = useHasMounted();
+
+  console.log(hasMounted, hasMountedFromHooks);
   return (
       <BrowserRouter>
         <GlobalStyle/>
@@ -84,11 +99,31 @@ function App() {
             <Calendar fullscreen={false}/>
           </div>
         </div>
+        <Links/>
+
         {/*ControlledComponent*/}
         <ControlledComponent/>
         {/*UncontrolledComponent*/}
         <UncontrolledComponent/>
-        <Links/>
+        {/* Hook Example1 */}
+        <ExamHook1/>
+        {/* Hook Example2 */}
+        <ExamHook2/>
+        {/* Hook Example3 */}
+        <ExamHook3/>
+        {/* Hook Example4 */}
+        <ExamHook4/>
+        {/* Hook Example5 */}
+        <ExamHook5/>
+        {/* Custom Hook1 */}
+        {width}
+        {/* Hook Example6 */}
+        <ExamHook6/>
+        {/* Hook Example7 */}
+        <ExamHook7/>
+        {/* Hook Example8 */}
+        <ExamHook8/>
+
         {/*<NavLinks/>*/}
         <Routes>
           <Route path="*" element={<NotFound/>} />
@@ -111,4 +146,4 @@ function App() {
   );
 }
 
-export default App;
+export default withHasMounted(App);
