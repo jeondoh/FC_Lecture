@@ -1,3 +1,5 @@
+import axios from "axios";
+
 export const ADD_TODO = "ADD_TODO";
 export const COMPLETE_TODO = "COMPLETE_TODO";
 
@@ -53,5 +55,32 @@ export function getUsersFail(error) {
   return {
     type: GET_USERS_FAIL,
     error,
+  };
+}
+
+export function getUsersThunk() {
+  return async (dispatch) => {
+    try {
+      dispatch(getUsersStart());
+      const res = await axios.get("https://api.github.com/users");
+      dispatch(getUsersSuccess(res.data));
+    } catch (error) {
+      dispatch(getUsersFail(error));
+    }
+  };
+}
+
+const GET_USERS = "GET_USERS";
+export const GET_USERS_PENDING = "GET_USERS_PENDING";
+export const GET_USERS_FULFILLED = "GET_USERS_FULFILLED";
+export const GET_USERS_REJECTED = "GET_USERS_REJECTED";
+
+export function getUsersPromise() {
+  return {
+    type: GET_USERS,
+    payload: async () => {
+      const res = await axios.get("https://api.github.com/users");
+      return res.data;
+    },
   };
 }
